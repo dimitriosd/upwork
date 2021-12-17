@@ -1,0 +1,11 @@
+<cdk-virtual-scroll-viewport itemSize="40">
+  <mat-list>
+    <mat-list-item *cdkVirtualFor="let pokemon of facade.pokemons$ | async">
+      <div>{{pokemon.name}} - {{pokemon.url}}</div>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</cdk-virtual-scroll-viewport>
+
+
+
