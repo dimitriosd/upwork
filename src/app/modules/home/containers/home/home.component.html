@@ -1,11 +1,8 @@
-<cdk-virtual-scroll-viewport itemSize="40">
-  <mat-list>
-    <mat-list-item *cdkVirtualFor="let pokemon of facade.pokemons$ | async">
-      <div>{{pokemon.name}} - {{pokemon.url}}</div>
-      <mat-divider></mat-divider>
-    </mat-list-item>
-  </mat-list>
-</cdk-virtual-scroll-viewport>
-
-
-
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Tax Form</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-tax-form></app-tax-form>
+  </mat-card-content>
+</mat-card>
