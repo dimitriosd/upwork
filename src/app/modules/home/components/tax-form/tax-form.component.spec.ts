@@ -8,7 +8,8 @@ describe('TaxFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TaxFormComponent ]
+      declarations: [ TaxFormComponent ],
+      imports: []
     })
     .compileComponents();
   });

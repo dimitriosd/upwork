@@ -1,17 +1,17 @@
-<form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="taxForm" (ngSubmit)="onSubmit()" #formDirective="ngForm">
   <!-- Username -->
   <mat-form-field appearance="fill">
     <mat-label>Username</mat-label>
-    <input matInput formControlName="username" >
+    <input matInput formControlName="username"  >
     <mat-error>{{ getErrorMessage('username')}}</mat-error>
   </mat-form-field>
   <!-- Country -->
   <mat-form-field appearance="fill">
     <mat-label>Country</mat-label>
     <input type="text"
-           placeholder="Pick a country"
            aria-label="Country"
            matInput
+           autocomplete="chrome-off"
            formControlName="country"
            [matAutocomplete]="auto">
     <mat-autocomplete autoActiveFirstOption="true" #auto="matAutocomplete">
@@ -24,10 +24,10 @@
   <!-- Tax code -->
   <mat-form-field appearance="fill">
     <mat-label>Tax code</mat-label>
-    <!--<input matInput formControlName="taxCode" [textMask]="{mask: maskFunc()}">-->
+    <input matInput formControlName="taxCode" [mask]="mask">
     <mat-error>{{ getErrorMessage('taxCode')}}</mat-error>
   </mat-form-field>
-
+  <!-- Submit -->
   <mat-card-actions>
     <button mat-raised-button type="submit" color="primary">SUBMIT</button>
   </mat-card-actions>
