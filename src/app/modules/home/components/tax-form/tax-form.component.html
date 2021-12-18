@@ -1,9 +1,9 @@
-<form [formGroup]="taxForm" (ngSubmit)="onSubmit()" #formDirective="ngForm">
+<form [formGroup]="taxForm" (ngSubmit)="onSubmit()" #formDirective="ngForm" autocomplete="off">
   <!-- Username -->
   <mat-form-field appearance="fill">
     <mat-label>Username</mat-label>
-    <input matInput formControlName="username"  >
-    <mat-error>{{ getErrorMessage('username')}}</mat-error>
+    <input matInput [formControlName]="taxFormField.USERNAME" autocomplete="chrome-off">
+    <mat-error>{{ usernameErrorMessage}}</mat-error>
   </mat-form-field>
   <!-- Country -->
   <mat-form-field appearance="fill">
@@ -12,20 +12,21 @@
            aria-label="Country"
            matInput
            autocomplete="chrome-off"
-           formControlName="country"
+           [formControlName]="taxFormField.COUNTRY"
            [matAutocomplete]="auto">
     <mat-autocomplete autoActiveFirstOption="true" #auto="matAutocomplete">
       <mat-option *ngFor="let item of filteredCountries | async" [value]="item">
         {{item}}
       </mat-option>
     </mat-autocomplete>
-    <mat-error>{{ getErrorMessage('country')}}</mat-error>
+    <mat-error>{{ countryErrorMessage}}</mat-error>
   </mat-form-field>
   <!-- Tax code -->
   <mat-form-field appearance="fill">
     <mat-label>Tax code</mat-label>
-    <input matInput formControlName="taxCode" [mask]="mask">
-    <mat-error>{{ getErrorMessage('taxCode')}}</mat-error>
+    <input type="text" matInput [formControlName]="taxFormField.TAX_ID" [mask]="mask" autocomplete="chrome-off"
+           [placeholder]="taxIdPlaceholder">
+    <mat-error>{{ taxIdErrorMessage}}</mat-error>
   </mat-form-field>
   <!-- Submit -->
   <mat-card-actions>

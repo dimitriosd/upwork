@@ -12,28 +12,33 @@ import { TaxFormComponent } from './components/tax-form/tax-form.component';
 import { HomeComponent } from './containers/home/home.component';
 
 import { HomeRoutingModule } from './home-routing.module';
-import {NgxMaskModule} from "ngx-mask";
+import { NgxMaskModule } from 'ngx-mask';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-	declarations: [
-		HomeComponent,
-		TaxFormComponent
-	],
-	imports:      [
-		CommonModule,
-		HomeRoutingModule,
-		MatFormFieldModule,
-		FormsModule,
-		ReactiveFormsModule,
-		MatInputModule,
-		MatCardModule,
-		MatAutocompleteModule,
-		MatOptionModule,
-		MatButtonModule,
+  declarations: [
+    HomeComponent,
+    TaxFormComponent
+  ],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatCardModule,
+    MatAutocompleteModule,
+    MatOptionModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    HttpClientModule,
     NgxMaskModule.forRoot(),
-	],
-	providers:    [
-		{ provide: ErrorStateMatcher, useClass: TouchedErrorStateMatcher }
-	]
+  ],
+  providers: [
+    { provide: ErrorStateMatcher, useClass: TouchedErrorStateMatcher }
+  ]
 })
-export class HomeModule {}
+export class HomeModule {
+}
